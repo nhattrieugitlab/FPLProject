@@ -1,30 +1,46 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Dimensions, TouchableOpacity, View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTab = (props) => {
     const tabs = props.tabs;
+    const screenWidth = Dimensions.get('screen').width;
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
             tabBarShowLabel: false,
             headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => {
-                if (route.name === 'Home') {
-                    iconName = focused ? tabs[0].icon : tabs[0].iconOutline;
-                    if (focused) return <Image source={iconName} style={{ width: size, height: size }} />
-                } else if (route.name === 'Profile') {
-                    iconName = focused ? tabs[1].icon : tabs[1].iconOutline;
-                } else if (route.name === 'Home1') {
-                    iconName = focused ? tabs[2].icon : tabs[2].iconOutline;
-                } else if (route.name === 'Profile1') {
-                    iconName = focused ? tabs[3].icon : tabs[3].iconOutline;
+            tabBarStyle: { height: 64 },
+            tabBarButton: ({ onPress, accessibilityState }) => {
+                const tabSelected = accessibilityState.selected;
+                const tabSelectedIndex = route.name === 'Home' ? 0 : route.name === 'Profile' ? 1 : route.name === 'Home1' ? 2 : 3;
+                if (tabSelected) {
+                    return (
+                        <TouchableOpacity
+                            onPress={onPress}
+                            style={{ width: screenWidth / 2 - 20, justifyContent: 'center', alignItems: 'center', backgroundColor: '#feebcb', borderRadius: 32, margin: 10 }}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-evenly', width: screenWidth / 2 - 20 }}>
+                                <Image
+                                    source={tabs[tabSelectedIndex].icon}
+                                    style={{ width: 24, height: 24 }} />
+                                <Text style={{ color: '#f5961b', fontSize: 16 }}>
+                                    {tabs[tabSelectedIndex].name}
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    )
+                } else {
+                    return (
+                        <TouchableOpacity
+                            onPress={onPress}
+                            style={{ width: screenWidth / 6, justifyContent: 'center', alignItems: 'center' }}
+                        >
+                            <Image source={tabs[tabSelectedIndex].iconOutline} style={{ width: 24, height: 24 }} />
+                        </TouchableOpacity>
+                    )
                 }
-
-                // Render the icon using Image component
-                return <Image source={iconName} style={{ width: size, height: size }} />;
-            },
+            }
         })}>
             {tabs.map((item, index) => {
                 return (
