@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Text, Modal, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 
 const SelectDialog = ({ visible, data, onSelect, onCancel }) => {
+    const handleSelect = (item) => {
+        onSelect(item);
+    };
+   
     return (
         <Modal onpew visible={visible} transparent animationType="fade">
             <View style={styles.modalContainer}>
