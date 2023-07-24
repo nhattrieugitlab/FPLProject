@@ -9,12 +9,13 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import ScheduleNavigator from './src/navigator/ScheduleNavigator';
 import BottomTab from './src/components/BottomTab';
+import HomeNavigator from './src/navigator/HomeNavigator';
 
 function App(): JSX.Element {
 
   const tabs = [{
     name: 'Home',
-    screen: ScheduleNavigator,
+    screen: HomeNavigator,
     iconOutline: require('./src/assets/icons/home_outline_48.png'),
     icon: require('./src/assets/icons/home_48.png')
   }, {
