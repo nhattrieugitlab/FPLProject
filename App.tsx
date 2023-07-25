@@ -10,6 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import ScheduleNavigator from './src/navigator/ScheduleNavigator';
 import BottomTab from './src/components/BottomTab';
 import HomeNavigator from './src/navigator/HomeNavigator';
+import Profile from './src/screens/Profile';
 
 function App(): JSX.Element {
 
@@ -29,8 +30,8 @@ function App(): JSX.Element {
     iconOutline: require('./src/assets/icons/table_outline_48.png'),
     icon: require('./src/assets/icons/table_48.png')
   }, {
-    name: 'Profile1',
-    screen: ScheduleNavigator,
+    name: 'Tiện ích',
+    screen: Profile,
     iconOutline: require('./src/assets/icons/person_outline_48.png'),
     icon: require('./src/assets/icons/person_48.png')
   }]
@@ -39,6 +40,7 @@ function App(): JSX.Element {
     <NavigationContainer>
       <BottomTab tabs={tabs} />
     </NavigationContainer>
+    
   )
 }
 
