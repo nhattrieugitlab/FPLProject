@@ -32,7 +32,7 @@ const user = {
 
 
 
-const ScheduleNavigator = () => {
+const ScoreNavigator = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -61,4 +61,4 @@ const ScheduleNavigator = () => {
     )
 }
 
-export default ScheduleNavigator
+export default ScoreNavigator

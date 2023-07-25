@@ -11,6 +11,7 @@ import ScheduleNavigator from './src/navigator/ScheduleNavigator';
 import BottomTab from './src/components/BottomTab';
 import HomeNavigator from './src/navigator/HomeNavigator';
 import Profile from './src/screens/Profile';
+import ScoreNavigator from './src/navigator/ScoreNavigator';
 
 function App(): JSX.Element {
 
@@ -26,7 +27,7 @@ function App(): JSX.Element {
     icon: require('./src/assets/icons/stack_48.png')
   }, {
     name: 'Home1',
-    screen: ScheduleNavigator,
+    screen: ScoreNavigator,
     iconOutline: require('./src/assets/icons/table_outline_48.png'),
     icon: require('./src/assets/icons/table_48.png')
   }, {
@@ -40,7 +41,7 @@ function App(): JSX.Element {
     <NavigationContainer>
       <BottomTab tabs={tabs} />
     </NavigationContainer>
-    
+
   )
 }
 
