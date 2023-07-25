@@ -9,6 +9,7 @@ import AttendenceDetail from '../screens/AttendenceDetail';
 import Semester from '../screens/Semester';
 import History from '../screens/History';
 import TranScirpts from '../screens/TranScirpts';
+import SemesterDetail from '../screens/SemesterDetail'
 
 
 const Stack = createNativeStackNavigator();
@@ -54,7 +55,7 @@ const ScheduleNavigator = () => {
                 name='Schedule'>
                 {() => <TopTab tabs={tabs} />}
             </Stack.Screen>
-            <Stack.Screen name='AttendenceDetail' component={AttendenceDetail} options={{ headerShown: false }} />
+            <Stack.Screen name='SemesterDetail' component={SemesterDetail} options={{ headerShown: false }} />
         </Stack.Navigator>
 
     )
