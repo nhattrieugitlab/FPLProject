@@ -10,6 +10,7 @@ import Semester from '../screens/Semester';
 import History from '../screens/History';
 import TranScirpts from '../screens/TranScirpts';
 
+
 const Stack = createNativeStackNavigator();
 
 const tabs = [{
@@ -27,6 +28,8 @@ const user = {
     name: 'Huỳnh Ngọc Phú Quí',
     image: require('../assets/images/avatar.jpg')
 }
+
+
 
 const ScheduleNavigator = () => {
     return (
