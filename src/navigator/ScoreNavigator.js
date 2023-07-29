@@ -52,7 +52,7 @@ const ScoreNavigator = () => {
                         </View>
                     ),
                 }}
-                name='Schedule'>
+                name='Semester'>
                 {() => <TopTab tabs={tabs} />}
             </Stack.Screen>
             <Stack.Screen name='SemesterDetail' component={SemesterDetail} options={{ headerShown: false }} />

@@ -39,8 +39,8 @@ const SemesterDetail = ({ navigation }) => {7
                     <Text style={{ padding: 12, flex: 3, textAlign: 'center' }}>
                         {item.time}
                     </Text>
-                    <Text style={[item.status === 'Present' ? { color: 'green' } : item.status === 'Absent' ? { color: 'red' } : null, { padding: 12, textAlign: 'center', flex: 7 }]}>
-                        {item.status}
+                    <Text style={[item.Status === 'Passed' ? { color: 'green' } : item.Status === 'Falied' ? { color: 'blue' } : null, { padding: 12, textAlign: 'center', flex: 7 }]}>
+                        {item.Status}
                     </Text>
                 </View>
             </View>

@@ -7,19 +7,19 @@ const HistoryItem = (props) => {
   return (
     <TouchableOpacity onPress={() => { handlePress(item) }} style={{ marginVertical: 8, backgroundColor: 'white', borderRadius: 8 }}>
     <View style={{ flexDirection: 'row', padding: 12, alignItems: 'center' }}>
-        <View style={{ width: '20%', borderRadius: 8,}}>
+        <View style={{ width: '25%', borderRadius: 8,}}>
             <Text style={{ color: 'black', padding: 8 }}>
-             {item.Semster}
+             {item.Semester}
             </Text>
         </View>
-        <View style={{ width: '50%', marginLeft: 12 }}>
+        <View style={{ width: '45%', marginLeft: 12 }}>
             <Text style={{ color: 'black' }}>
                 {item.subjectName + ' - ' + item.subjectCode}
             </Text>
         </View>
         <View style={{ width: '23%', borderRadius: 8,}}>
-            <Text style={{ color: 'black', padding: 8 }}>
-             {item.Status}
+            <Text style={[item.status === 'Passed' ? { color: 'green' } : item.status === 'Failed' ? { color: 'red' } : null,{padding:8}]}>
+             {item.status}
             </Text>
         </View>
         <Image source={item.isExpanded ? require('../assets/icons/expand_more_48.png') : require('../assets/icons/navigate_next_48.png')} style={{ width: 24, height: 24 }} />
@@ -35,13 +35,13 @@ const HistoryItem = (props) => {
                                 <Text style={{ fontWeight: 'bold' }}>{item.subjectCode}</Text>
                             </Text>
                             <Text style={{ color: 'black' }}>
-                                <Text>Điểm Trung Bình </Text>
+                                <Text>Điểm Trung Bình :  </Text>
                                 <Text style={{ fontWeight: 'bold' }}>{item.score}</Text>
                             </Text>
                         </View>
                         <View style={{ width: '50%' }}>
                             <Text style={{ color: 'black' }}>
-                                <Text>Lớp: </Text>
+                                <Text>Lớp : </Text>
                                 <Text style={{ fontWeight: 'bold' }}>{item.class}</Text>
                             </Text>
                             <Text style={{ color: 'black' }}>

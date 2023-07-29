@@ -7,17 +7,17 @@ const TranScirptsItem = (props) => {
   return (
     <TouchableOpacity onPress={() => { handlePress(item) }} style={{ marginVertical: 8, backgroundColor: 'white', borderRadius: 8 }}>
     <View style={{ flexDirection: 'row', padding: 12, alignItems: 'center' }}>
-        <View style={{ width: '20%', borderRadius: 8,}}>
+        <View style={{ width: '35%', borderRadius: 8,}}>
             <Text style={{ color: 'black', padding: 8 }}>
-             {item.Semster}
+             {item.Semester}
             </Text>
         </View>
-        <View style={{ width: '50%', marginLeft: 12 }}>
+        <View style={{ width: '45%',}}>
             <Text style={{ color: 'black' }}>
                 {item.subjectName}
             </Text>
         </View>
-        <View style={{ width: '23%', borderRadius: 8,}}>
+        <View style={{ width: '17%', borderRadius: 8,paddingLeft:16}}>
             <Text style={{ color: 'black', padding: 8 }}>
              {item.score}
             </Text>

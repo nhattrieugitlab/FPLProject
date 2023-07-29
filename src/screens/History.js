@@ -8,7 +8,7 @@ const History = () => {
         Semester: 'Fall 2023',
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
-        Status: 'Passed',
+        status: 'Failed',
         class: 'MD18101',
         score: '9.5',
         teach: '17',
@@ -17,7 +17,7 @@ const History = () => {
         Semester: 'Summer 2023',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed',
+        status: 'Passed',
         class: 'MD18101',
         score: '9.5',
         teach: '17'
@@ -26,7 +26,7 @@ const History = () => {
         Semester: 'Spring 2023',
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -36,7 +36,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -47,7 +47,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -59,7 +59,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -71,7 +71,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Failed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -83,7 +83,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Failed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -95,7 +95,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',
@@ -107,7 +107,7 @@ const History = () => {
         Semester: 'Fall 2022',
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
-        Status: 'Passed'
+        status: 'Passed'
         ,
         class: 'MD18101',
         score: '9.5',

@@ -13,14 +13,14 @@ const SemesterItem = (props) => {
                         {item.subjectName + ' - ' + item.subjectCode}
                     </Text>
                     <Text style={{ marginTop: 6 }}>
-                        <Text>Điểm Trung Bình</Text>
+                        <Text>Điểm Trung Bình : </Text>
                         <Text style={{ color: 'red', fontWeight: 'bold' }}>
                            {item.Score}
                         </Text> 
                     </Text>
                     <Text style={{ marginTop: 6 }}>
-                        <Text>Trạng Thái:</Text>
-                        <Text style={{ color: '#fca612', fontWeight: 'bold' }}>
+                        <Text>Trạng Thái : </Text>
+                        <Text style={[item.Status === 'Passed' ? { color: 'green' } : item.Status === 'Failed' ? { color: 'orange' } : null, { padding: 12}]}>
                             {item.Status}
                         </Text>
                     </Text>

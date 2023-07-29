@@ -51,7 +51,7 @@ const Semester = ({navigation}) => {
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
         Score: '9.5',
-        Status: 'Passed'
+        Status: 'Failed'
     }, {
         id: 3,
         subjectCode: 'MOB401',
@@ -63,13 +63,13 @@ const Semester = ({navigation}) => {
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
         Score: '9.5',
-        Status: 'Passed'
+        Status: 'Failed'
     }, {
         id: 5,
         subjectCode: 'MOB401',
         subjectName: 'Lập trình game 2D nâng cao',
         Score: '9.5',
-        Status: 'Passed'
+        Status: 'Failed'
     }])
     
 

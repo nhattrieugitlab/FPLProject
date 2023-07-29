@@ -50,13 +50,13 @@ const TranScirpts = () => {
     },
     {
         id: 4,
-        Semester: 'Fall 2023',
+        Semester: 'Summer 2023',
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
         term:'5',
         subjectCodeChange: 'MOB402',
         status: 'Passed',
-        score: '9.5',
+        score: '10',
         creadits: '3',
     },
     {
@@ -80,17 +80,18 @@ const TranScirpts = () => {
            }
   return (
     <View  style={{ paddingTop: 16, paddingHorizontal: 12, flex: 1 }}>
-        <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',borderRadius:5,padding:16}}>
+        <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',borderRadius:5,padding:16,width:'100%',height:'45%'}}>
             <View style={{flexDirection:'row'}}>
                 <View style={{width:'100%'}}>
-                    <Text style={{color:'blue',padding:8}}>
+                    <Text style={{color:'blue',paddingLeft:8}}>
                        Điểm Trung Bình: 9.5
                     </Text>
-                    <Text style={{color:'black',padding:8}}>
+                    <Text style={{color:'blue',paddingLeft:8,paddingTop:6,backgroundColor:'#f2f2f2'}}>
                        Tín Chỉ:72/97(Đạt Tổng) -0 miễn giảm
                     </Text>
-
-                    <Text style={{color:'black',padding:8,fontWeight: 'bold',fontSize:16}}>
+                     <View style={{backgroundColor:'gray',width:'97%',height:1,}}>
+                    </View>
+                    <Text style={{color:'blue',paddingLeft:8,fontWeight: 'bold',fontSize:16}}>
                         Thống kê
                     </Text>
                     <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6}}>
@@ -118,7 +119,7 @@ const TranScirpts = () => {
                 </View>
             </View> 
         </View>
-        <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6}}>
+        <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6,borderRadius:8}}>
                     <View style={{ flexDirection: 'row', width: '70%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', flex: 3, textAlign: 'center' }}>
                            Học Kỳ
@@ -127,9 +128,9 @@ const TranScirpts = () => {
                           Môn
                         </Text>
                     </View>
-                    <View style={{ flexDirection: 'row', width: '30%' }}>
+                    <View style={{ flexDirection: 'row', width: '40%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                            Trạng thái
+                           Điểm
                         </Text>
                     </View>
                 </View>
