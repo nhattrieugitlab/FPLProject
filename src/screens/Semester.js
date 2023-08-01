@@ -24,7 +24,60 @@ const Semester = ({navigation}) => {
         subjectCode: 'MOB402',
         subjectName: 'Lập trình server cho Android',
         Score: '9.5',
-        Status: 'Passed'}
+        Status: 'Passed',
+        attendences: [
+            {
+                name:"Lab1",
+                weight: 3.5,
+                score: 10
+            },
+            {
+                name:"Lab2",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab3",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab4",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab5",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab6",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab7",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab8",
+                weight: 3.5,
+                score: 8
+            },
+            {
+                name:"Asm1",
+                weight: 3.5,
+                score: 10
+            },
+            {
+                name:"Asm2",
+                weight: 3.5,
+                score: 8
+            }
+        ]
+    }
     , {
         id: 1,
         subjectCode: 'MOB401',

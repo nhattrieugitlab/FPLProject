@@ -55,7 +55,7 @@ const SemesterDetail = ({ navigation }) => {7
                     <Image source={require('../assets/icons/arrow_back_48.png')} style={{ width: 24, height: 24 }} />
                 </TouchableOpacity>
                 <Text style={{ flex: 1, textAlign: 'center', marginRight: 24, fontWeight: 'bold', fontSize: 18, color: 'white' }}>
-                    Điểm Danh
+                    Bảng Điểm
                 </Text>
             </View>
             <View style={{ paddingVertical: 8, paddingHorizontal: 12 }}>
