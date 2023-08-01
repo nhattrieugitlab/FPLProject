@@ -1,10 +1,17 @@
 import { View, Text,FlatList} from 'react-native'
 import React,{useState} from 'react'
 import TranScirptsItem from '../components/TranScirptsItem'
+import ChartTranScirpt from './ChartTranScirpt'
 
 const TranScirpts = () => {
 
 
+    const [CreditsGPA,setCreditsGPA] =useState([{
+        GPA: '3.5',
+        CreditsGPA: '3.5',
+        CreditsTotal: '3.5',
+        CreditsPassed: '3.5',
+    }])
     const [semesterData, setsemesterData] = useState([{
         id: 0,
         Semester: 'Fall 2023',
@@ -14,7 +21,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '9.5',
-        creadits: '3',
+        Credits: '3',
     },
     {
         id: 1,
@@ -25,7 +32,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '9.5',
-        creadits: '3',
+        Credits: '3',
     },{
         id: 2,
         Semester: 'Fall 2023',
@@ -35,7 +42,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '9.5',
-        creadits: '3',
+        Credits: '3',
     },
     {
         id: 3,
@@ -46,7 +53,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '9.5',
-        creadits: '3',
+        Credits: '3',
     },
     {
         id: 4,
@@ -57,7 +64,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '10',
-        creadits: '3',
+        Credits: '3',
     },
     {
         id: 5,
@@ -68,7 +75,7 @@ const TranScirpts = () => {
         subjectCodeChange: 'MOB402',
         status: 'Passed',
         score: '9.5',
-        creadits: '3',
+        Credits: '3',
     }
 ])
 
@@ -80,45 +87,12 @@ const TranScirpts = () => {
            }
   return (
     <View  style={{ paddingTop: 16, paddingHorizontal: 12, flex: 1 }}>
-        <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',borderRadius:5,padding:16,width:'100%',height:'45%'}}>
-            <View style={{flexDirection:'row'}}>
-                <View style={{width:'100%'}}>
-                    <Text style={{color:'blue',paddingLeft:8}}>
-                       Điểm Trung Bình: 9.5
-                    </Text>
-                    <Text style={{color:'blue',paddingLeft:8,paddingTop:6,backgroundColor:'#f2f2f2'}}>
-                       Tín Chỉ:72/97(Đạt Tổng) -0 miễn giảm
-                    </Text>
-                     <View style={{backgroundColor:'gray',width:'97%',height:1,}}>
-                    </View>
-                    <Text style={{color:'blue',paddingLeft:8,fontWeight: 'bold',fontSize:16}}>
-                        Thống kê
-                    </Text>
-                    <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6}}>
-                    <View style={{ flexDirection: 'row', width: '25%' }}>
-                        <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', flex: 3, textAlign: 'center' }}>
-                            Tổng Môn Chưa Đạt
-                        </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', width: '25%' }}>
-                    <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                          Tổng Môn Đạt
-                        </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', width: '25%' }}>
-                    <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                          Tổng Môn Học Lại
-                        </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', width: '25%' }}>
-                    <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                          Tổng Môn Đang Học
-                        </Text>
-                    </View>
-                </View>
-                </View>
-            </View> 
-        </View>
+        <FlatList
+        showsVerticalScrollIndicator={false}
+        data={CreditsGPA}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => <ChartTranScirpt item={item} handlePress={handlePress} />}     
+        />
         <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6,borderRadius:8}}>
                     <View style={{ flexDirection: 'row', width: '70%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', flex: 3, textAlign: 'center' }}>

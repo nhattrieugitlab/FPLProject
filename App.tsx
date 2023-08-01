@@ -26,7 +26,7 @@ function App(): JSX.Element {
     iconOutline: require('./src/assets/icons/stack_outline_48.png'),
     icon: require('./src/assets/icons/stack_48.png')
   }, {
-    name: 'Home1',
+    name: 'Semester',
     screen: ScoreNavigator,
     iconOutline: require('./src/assets/icons/table_outline_48.png'),
     icon: require('./src/assets/icons/table_48.png')

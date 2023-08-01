@@ -4,7 +4,6 @@ import {useRoute } from '@react-navigation/native';
 
 const SemesterDetail = ({ navigation }) => {7
     const attendenceData = useRoute().params;
-
     const getAttendence = () => {
         let present = 0;
         let absent = 0;
@@ -27,22 +26,24 @@ const SemesterDetail = ({ navigation }) => {7
     const renderItem = (item) => {
         return (
             <View style={{ flexDirection: 'row', borderLeftWidth: 1, borderRightWidth: 1, borderBottomWidth: 1, borderColor: '#cacaca' }}>
-                <View style={{ flexDirection: 'row', width: '50%' }}>
-                    <Text style={{ padding: 12, flex: 3, textAlign: 'center' }}>
-                        {item.lesson}
-                    </Text>
-                    <Text style={{ padding: 12, textAlign: 'center', flex: 7 }}>
-                        {item.date}
+                <View style={{ flexDirection: 'row', width: '33%' }}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center',fontWeight:'bold',color:"red"}}>
+                        {item.name}
                     </Text>
                 </View>
-                <View style={{ flexDirection: 'row', width: '50%' }}>
-                    <Text style={{ padding: 12, flex: 3, textAlign: 'center' }}>
-                        {item.time}
-                    </Text>
-                    <Text style={[item.Status === 'Passed' ? { color: 'green' } : item.Status === 'Falied' ? { color: 'blue' } : null, { padding: 12, textAlign: 'center', flex: 7 }]}>
-                        {item.Status}
+                <View style={{ flexDirection: 'row', width: '33%' }}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center',fontWeight:'bold',color:"red"}}>
+                        {item.weight}
                     </Text>
                 </View>
+
+                <View style={{ flexDirection: 'row', width: '33%' }}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center' }}>
+                        {item.score}
+                    </Text>
+                </View>
+        
+                
             </View>
         )
     }
@@ -64,20 +65,19 @@ const SemesterDetail = ({ navigation }) => {7
             </View>
             <View style={{ backgroundColor: 'white', flex: 1, paddingHorizontal: 12, paddingTop: 12 }}>
                 <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca' }}>
-                    <View style={{ flexDirection: 'row', width: '50%' }}>
+                    <View style={{ flexDirection: 'row', width: '33%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', flex: 3, textAlign: 'center' }}>
-                            Buổi
+                            Tên Điểm
                         </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', width: '33%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                            Ngày học
+                           Trọng Số
                         </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', width: '50%' }}>
+                        </View>
+                    <View style={{ flexDirection: 'row', width: '33%' }}>
                         <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', flex: 3, textAlign: 'center' }}>
-                            Ca
-                        </Text>
-                        <Text style={{ color: 'black', padding: 12, fontWeight: 'bold', textAlign: 'center', flex: 7 }}>
-                            Trạng thái
+                            Điểm
                         </Text>
                     </View>
                 </View>
@@ -89,29 +89,8 @@ const SemesterDetail = ({ navigation }) => {7
                         keyExtractor={item => item.lesson}
                         renderItem={({ item }) => renderItem(item)}
                         showsVerticalScrollIndicator={false} />
-                    <View style={{ flexDirection: 'row', borderLeftWidth: 1, borderRightWidth: 1, borderBottomWidth: 1, borderColor: '#cacaca', justifyContent: 'space-around', backgroundColor: '#f2f2f2', padding: 12 }}>
-                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>
-                            <Text>Vắng: </Text>
-                            <Text style={{ color: 'red' }}>
-                                {getAttendence().absent + '/' + (getAttendence().absent + getAttendence().present + getAttendence().future) + ' '}
-                                {Math.floor(getAttendence().absent / (getAttendence().absent + getAttendence().present + getAttendence().future) * 100) + '% '}
-                            </Text>
-                            <Text>
-                                trên tổng số
-                            </Text>
-                        </Text>
-                        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 12 }}>
-                            <Text>Vắng: </Text>
-                            <Text style={{ color: 'red' }}>
-                                {getAttendence().absent + '/' + (getAttendence().absent + getAttendence().present) + ' '}
-                                {Math.floor(getAttendence().absent / (getAttendence().absent + getAttendence().present) * 100) + '% '}
-                            </Text>
-                            <Text>
-                                cho đến hiện tại
-                            </Text>
-                        </Text>
-                    </View>
                 </ScrollView>
+                
             </View>
         </View>
     )

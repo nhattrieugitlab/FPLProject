@@ -14,7 +14,7 @@ const BottomTab = (props) => {
             tabBarStyle: { height: 64 },
             tabBarButton: ({ onPress, accessibilityState }) => {
                 const tabSelected = accessibilityState.selected;
-                const tabSelectedIndex = route.name === 'Home' ? 0 : route.name === 'Profile' ? 1 : route.name === 'Home1' ? 2 : 3;
+                const tabSelectedIndex = route.name === 'Home' ? 0 : route.name === 'Profile' ? 1 : route.name === 'Semester' ? 2 : 3;
                 if (tabSelected) {
                     return (
                         <TouchableOpacity
