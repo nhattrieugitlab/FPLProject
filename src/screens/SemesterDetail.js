@@ -4,46 +4,43 @@ import {useRoute } from '@react-navigation/native';
 
 const SemesterDetail = ({ navigation }) => {7
     const attendenceData = useRoute().params;
-    const getAttendence = () => {
-        let present = 0;
-        let absent = 0;
-        let future = 0;
-        attendenceData.attendences.forEach(attendence => {
-            if (attendence.status === 'Present') {
-                present++;
-            } else if (attendence.status === 'Absent') {
-                absent++;
-            } else {
-                future++;
-            }
-        });
-        return ({
-            present,
-            absent,
-            future
-        })
-    }
+    // const getAttendence = () => {
+    //     let present = 0;
+    //     let absent = 0;
+    //     let future = 0;
+    //     attendenceData.attendences.forEach(attendence => {
+    //         if (attendence.status === 'Present') {
+    //             present++;
+    //         } else if (attendence.status === 'Absent') {
+    //             absent++;
+    //         } else {
+    //             future++;
+    //         }
+    //     });
+    //     return ({
+    //         present,
+    //         absent,
+    //         future
+    //     })
+    // }
     const renderItem = (item) => {
         return (
             <View style={{ flexDirection: 'row', borderLeftWidth: 1, borderRightWidth: 1, borderBottomWidth: 1, borderColor: '#cacaca' }}>
                 <View style={{ flexDirection: 'row', width: '33%' }}>
-                    <Text style={{ padding: 12, flex: 3, textAlign: 'center',fontWeight:'bold',color:"red"}}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center',fontWeight:'bold',color:"#3d3d29"}}>
                         {item.name}
                     </Text>
                 </View>
                 <View style={{ flexDirection: 'row', width: '33%' }}>
-                    <Text style={{ padding: 12, flex: 3, textAlign: 'center',fontWeight:'bold',color:"red"}}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center'}}>
                         {item.weight}
                     </Text>
                 </View>
-
                 <View style={{ flexDirection: 'row', width: '33%' }}>
-                    <Text style={{ padding: 12, flex: 3, textAlign: 'center' }}>
+                    <Text style={{ padding: 12, flex: 3, textAlign: 'center' ,color:'#ffa31a'}}>
                         {item.score}
                     </Text>
-                </View>
-        
-                
+                </View>   
             </View>
         )
     }

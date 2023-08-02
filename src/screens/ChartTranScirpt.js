@@ -6,7 +6,6 @@ const ChartTranScirpt = (props) => {
     const handlePress = props.handlePress;
   return (
     <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',borderRadius:5,padding:16,width:'100%',height:'45%'}}>
-    <View style={{flexDirection:'row'}}>
         <View style={{width:'100%'}}>
             <Text style={{color:'blue',paddingLeft:8}}>
                Điểm Trung Bình:{item.GPA}
@@ -19,6 +18,7 @@ const ChartTranScirpt = (props) => {
             <Text style={{color:'blue',paddingLeft:8,fontWeight: 'bold',fontSize:16}}>
                 Thống Kê 
             </Text>
+            
             <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca',marginTop:6}}>
             <View style={{ flexDirection: 'row', width: '25%' }}>
                 <Text style={{ color: 'black',  fontWeight: 'bold', flex: 3, textAlign: 'center' }}>
@@ -41,7 +41,6 @@ const ChartTranScirpt = (props) => {
                 </Text>
             </View>
         </View>
-                
         <View style={{ flexDirection: 'row', borderLeftWidth: 1, borderRightWidth: 1, borderBottomWidth: 1, borderColor: '#cacaca'} }>
                 <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca'}}>
                 <View style={{ backgroundColor: '#f2f2f2', flexDirection: 'row', borderWidth: 1, borderColor: '#cacaca'}}>
@@ -64,7 +63,7 @@ const ChartTranScirpt = (props) => {
               </View>
                 </View>
                 </View>
-        </View>
+      
     </View> 
 </View>
   )
