@@ -41,7 +41,6 @@ function App(): JSX.Element {
     <NavigationContainer>
       <BottomTab tabs={tabs} />
     </NavigationContainer>
-
   )
 }
 
