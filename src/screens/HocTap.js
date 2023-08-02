@@ -4,7 +4,7 @@ import HocTapItem from '../components/HocTapItem'
 
 
 
-const HocTap = () => {
+const HocTap = ({navigation}) => {
   const [notifyData, setNotifyData] = useState([{
     id: 0,
     title: 'Thông báo về việc nhận bằng tốt nghiệp (Đợt tốt nghiệp tháng 06/2023) ',
@@ -42,13 +42,17 @@ const HocTap = () => {
     time: '24/07/2023 11:45',
   },
   ])
+
+  const handlePress = (item) => {
+    navigation.navigate('ThongTinChiTiet', item);
+}
   return (
     <View style={styles.body}>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={notifyData}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <HocTapItem item={item} />} >
+        renderItem={({ item }) => <HocTapItem item={item} handlePress={handlePress}/>} >
       </FlatList>
     </View>
   )

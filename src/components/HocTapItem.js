@@ -3,8 +3,9 @@ import React from 'react'
 
 const HocTapItem = (props) => {
     const { item } = props;
+    const handlePress = props.handlePress;
     return (
-        <TouchableOpacity style={styles.body}>
+        <TouchableOpacity style={styles.body}  onPress={() => { handlePress(item) }}>
             <Text style={styles.title}>{item.title}</Text>
             <View style={styles.nguoiDangContainer }>
                 <Text>Người đăng: </Text>

@@ -9,6 +9,7 @@ import AttendenceDetail from '../screens/AttendenceDetail';
 import HocTap from '../screens/HocTap';
 import HocPhi from '../screens/HocPhi';
 import HoatDong from '../screens/HoatDong';
+import ThongTinChiTiet from '../screens/ThongTinChiTiet';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,7 +52,7 @@ const HomeNavigator = () => {
                 name='Schedule'>
                 {() => <TopTab tabs={tabs} />}
             </Stack.Screen>
-            <Stack.Screen name='AttendenceDetail' component={AttendenceDetail} options={{ headerShown: false }} />
+            <Stack.Screen name='ThongTinChiTiet' component={ThongTinChiTiet} options={{ headerShown: false }} />
         </Stack.Navigator>
 
     )
