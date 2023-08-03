@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, Touchable, View, TouchableOpacity, Modal, Alert } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity, Modal, Alert } from 'react-native'
 import React, { useState, useCallback, useEffect, useContext } from 'react'
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import AxiosInstance from '../apis/AxiosInstance';
