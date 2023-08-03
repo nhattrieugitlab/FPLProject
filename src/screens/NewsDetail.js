@@ -16,15 +16,26 @@ const NewsDetail = ({ navigation }) => {
                     {item.newsType === 'hoctap' ? 'Học Tập' : item.newsType === 'thongbao' ? 'Thông Báo' : 'Học Phí'}
                 </Text>
             </View>
-            <ScrollView style={{ padding: 16 }}>
+            <Text style={{ color: 'orange', fontSize: 18, fontWeight: 'bold', textAlign: 'center', padding: 16 }}>
+                {item.title}
+            </Text>
+            <ScrollView showsVerticalScrollIndicator={false} style={{ padding: 16 }}>
                 {item.content.split('\\n').map((line, index) => (
                     <View key={index}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
                             {line}
                         </Text>
                     </View>
                 ))}
             </ScrollView>
+            <View style={{ padding: 16 }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                    {'Người đăng: ' + item.createBy}
+                </Text>
+                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                    {'Thời gian: ' + item.createAt}
+                </Text>
+            </View>
         </View>
     )
 }

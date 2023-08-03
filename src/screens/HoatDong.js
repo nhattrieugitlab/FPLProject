@@ -1,54 +1,50 @@
 import { FlatList, StyleSheet, Text, View, ScrollView } from 'react-native'
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import HocTapItem from '../components/HocTapItem'
+import AxiosInstance from '../apis/AxiosInstance'
 
+const formattedData = (item) => {
+  const date = new Date(item.createAt);
+  const formattedDate = date.toLocaleDateString("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return { ...item, createAt: formattedDate };
+};
 
+const HoatDong = ({ navigation }) => {
 
-const HoatDong = () => {
-  const [notifyData, setNotifyData] = useState([{
-    id: 0,
-    title: 'P.CTSV THÔNG BÁO XÁC NHẬN ĐĂNG KÝ THÀNH CÔNG BHYT ĐỢT 02 - T6/2023',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  {
-    id: 2,
-    title: 'THÔNG BÁO HỖ TRỢ SINH VIÊN ĐĂNG KÝ THAM GIA BHYT ĐỢT 2- THÁNG 06/2023) VÀ CÀI ĐẶT ỨNG DỤNG VSSID ĐỂ SỬ DỤNG CHO BHYT',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  {
-    id: 3,
-    title: 'P.DVSV_THÔNG BÁO DSSV BẢO LƯU HỌC KỲ SUMMER 2023',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  {
-    id: 4,
-    title: 'P.DVSV_THÔNG BÁO DSSV THÔI HỌC TỰ NGUYỆN HỌC KỲ SUMMER 2023',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  {
-    id: 5,
-    title: 'P.DVSV_THÔNG BÁO: DANH SÁCH SINH VIÊN ĐÃ CÓ GIẤY XÁC NHẬN SINH VIÊN/VAY VỐN/BẢNG ĐIỂM_HỌC KỲ SUMMER 2023',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  {
-    id: 6,
-    title: 'TÌM NHÀ TRỌ KHÔNG KHÓ, MỌI THỨ ĐÃ CÓ NHÀ F LO',
-    nguoiDang: 'phitdp',
-    time: '24/07/2023 11:45',
-  },
-  ])
+  const [notifyData, setNotifyData] = useState([]);
+  const [reloading, setReloading] = useState(false);
+
+  useEffect(() => {
+    const getData = async () => {
+      let newData = [];
+      const res = await AxiosInstance().get('news/listNews');
+      res.forEach(item => {
+        item.newsType === 'hoatdong' ? newData.push(formattedData(item)) : null;
+      });
+      setNotifyData(newData.reverse());
+    }
+    getData();
+    setReloading(false);
+  }, [reloading]);
+
+  const handlePress = (item) => {
+    navigation.navigate('NewsDetail', item);
+  }
   return (
     <View style={styles.body}>
       <FlatList
+        refreshing={false}
+        onRefresh={() => { setReloading(true) }}
         showsVerticalScrollIndicator={false}
         data={notifyData}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => <HocTapItem item={item} />} >
+        keyExtractor={item => item._id}
+        renderItem={({ item }) => <HocTapItem item={item} handlePress={handlePress} />} >
       </FlatList>
     </View>
   )

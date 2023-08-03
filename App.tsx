@@ -12,21 +12,25 @@ import BottomTab from './src/components/BottomTab';
 import HomeNavigator from './src/navigator/HomeNavigator';
 import Profile from './src/screens/Profile';
 import ScoreNavigator from './src/navigator/ScoreNavigator';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/screens/Login';
+
+const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
 
   const tabs = [{
-    name: 'Home',
+    name: 'Trang chủ',
     screen: HomeNavigator,
     iconOutline: require('./src/assets/icons/home_outline_48.png'),
     icon: require('./src/assets/icons/home_48.png')
   }, {
-    name: 'Profile',
+    name: 'Lịch học',
     screen: ScheduleNavigator,
     iconOutline: require('./src/assets/icons/stack_outline_48.png'),
     icon: require('./src/assets/icons/stack_48.png')
   }, {
-    name: 'Semester',
+    name: 'Điểm',
     screen: ScoreNavigator,
     iconOutline: require('./src/assets/icons/table_outline_48.png'),
     icon: require('./src/assets/icons/table_48.png')
@@ -39,7 +43,12 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <BottomTab tabs={tabs} />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home">
+          {() => <BottomTab tabs={tabs} />}
+        </Stack.Screen>
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }

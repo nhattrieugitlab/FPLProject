@@ -1,67 +1,72 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import TopTab from '../components/TopTab'
-import BottomTab from '../components/BottomTab'
-
-const user = {
-    name: 'Nguyễn Nhật Triều',
-    image: require('../assets/images/avatar.jpg')
-}
+import React, { useState, useEffect } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Profile = () => {
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        const getUserData = async () => {
+            const user = await AsyncStorage.getItem('userData');
+            setUserData(JSON.parse(user));
+        }
+        getUserData();
+    }, [])
+
+    console.log(userData);
+
     return (
         <View>
             <View style={{ backgroundColor: '#fe930f', height: 64, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12 }}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image source={user.image} style={{ width: 48, height: 48, borderRadius: 24 }} />
-                                <Text style={{ color: 'white', marginLeft: 10 }}>
-                                    {user.name}
-                                </Text>
-                            </View>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image source={require('../assets/icons/qr-code_64.png')} style={{ width: 24, height: 24 }} />
-                                <Image source={require('../assets/icons/notification_64.png')} style={{ width: 24, height: 24, marginLeft: 24 }} />
-                            </View>
-                        </View>
-        
-        <View style={styles.container}>
-            
-            <TouchableOpacity style={styles.text1}>
-                <Image style={styles.image1} source={require('../assets/icons/world.png')} />
-                <View style={styles.text2}>
-                    <Text style={styles.text3}>Dịch vụ trực tuyến</Text>
-                    <Text style={styles.text4}>Sử dụng dịch vụ trực tuyến</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image source={userData?.googleUser?.user?.photo ? { uri: userData?.googleUser?.user?.photo } : require('../assets/icons/ong.png')} style={{ width: 48, height: 48, borderRadius: 24 }} />
+                    <Text style={{ color: 'white', marginLeft: 10 }}>
+                        {userData?.user[0]?.fullname}
+                    </Text>
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.text1}>
-                <Image style={styles.image1} source={require('../assets/icons/credit.png')} />
-                <View style={styles.text2}>
-                    <Text style={styles.text3}>Học phí</Text>
-                    <Text style={styles.text4}>Thông tin giao dịch, hóa đơn</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image source={require('../assets/icons/qr-code_64.png')} style={{ width: 24, height: 24 }} />
+                    <Image source={require('../assets/icons/notification_64.png')} style={{ width: 24, height: 24, marginLeft: 24 }} />
                 </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.text1}>
-                <Image style={styles.image1} source={require('../assets/icons/ong.png')} />
-                <View style={styles.text2}>
-                    <Text style={styles.text3}>Emotion Password</Text>
-                    <Text style={styles.text4}>Sự kiện và lịch sử tham gia sự kiện</Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.text1}>
-                <Image style={styles.image1} source={require('../assets/icons/everybody.png')} />
-                <View style={styles.text2}>
-                    <Text style={styles.text3}>Cộng đồng sinh viên</Text>
-                    <Text style={styles.text4}>Thực học, thực nghiệp</Text>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.text1}>
-                <Image style={styles.image1} source={require('../assets/icons/checklist.png')} />
-                <View style={styles.text2}>
-                    <Text style={styles.text3}>Khảo sát</Text>
-                    <Text style={styles.text4}>Khảo sát đánh giá</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
+            </View>
+            <View style={styles.container}>
+
+                <TouchableOpacity style={styles.text1}>
+                    <Image style={styles.image1} source={require('../assets/icons/world.png')} />
+                    <View style={styles.text2}>
+                        <Text style={styles.text3}>Dịch vụ trực tuyến</Text>
+                        <Text style={styles.text4}>Sử dụng dịch vụ trực tuyến</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.text1}>
+                    <Image style={styles.image1} source={require('../assets/icons/credit.png')} />
+                    <View style={styles.text2}>
+                        <Text style={styles.text3}>Học phí</Text>
+                        <Text style={styles.text4}>Thông tin giao dịch, hóa đơn</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.text1}>
+                    <Image style={styles.image1} source={require('../assets/icons/ong.png')} />
+                    <View style={styles.text2}>
+                        <Text style={styles.text3}>Emotion Password</Text>
+                        <Text style={styles.text4}>Sự kiện và lịch sử tham gia sự kiện</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.text1}>
+                    <Image style={styles.image1} source={require('../assets/icons/everybody.png')} />
+                    <View style={styles.text2}>
+                        <Text style={styles.text3}>Cộng đồng sinh viên</Text>
+                        <Text style={styles.text4}>Thực học, thực nghiệp</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.text1}>
+                    <Image style={styles.image1} source={require('../assets/icons/checklist.png')} />
+                    <View style={styles.text2}>
+                        <Text style={styles.text3}>Khảo sát</Text>
+                        <Text style={styles.text4}>Khảo sát đánh giá</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

@@ -1,8 +1,18 @@
-import { Image, StyleSheet, Text, Touchable, View, TouchableOpacity, Modal } from 'react-native'
+import { Image, StyleSheet, Text, Touchable, View, TouchableOpacity, Modal, Alert } from 'react-native'
 import React, { useState, useCallback, useEffect } from 'react'
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AxiosInstance from '../apis/AxiosInstance';
 
-const Login = () => {
+const setData = async (value) => {
+    try {
+        await AsyncStorage.setItem('userData', JSON.stringify(value));
+    } catch (error) {
+        console.error('Error saving data:', error);
+    }
+};
+
+const Login = ({ navigation }) => {
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
     const toggleModal = () => {
@@ -22,8 +32,19 @@ const Login = () => {
         try {
             await GoogleSignin.hasPlayServices();
             await GoogleSignin.signOut();
-            const userInfo = await GoogleSignin.signIn();
-            console.log('google login userInfo:', userInfo)
+            const googleUser = await GoogleSignin.signIn();
+            const user = await AxiosInstance().get('user/getUserByEmail/' + googleUser.user.email);
+            if (user[0]) {
+                setData({
+                    googleUser,
+                    user
+                });
+                navigation.replace('Home');
+            } else {
+                Alert.alert("Email của bạn không hợp lệ");
+            }
+
+
         } catch (error) {
             switch (error.code) {
                 case statusCodes.SIGN_IN_CANCELLED:
