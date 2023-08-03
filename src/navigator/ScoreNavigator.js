@@ -27,7 +27,7 @@ const tabs = [{
 
 const user = {
     name: 'Huỳnh Ngọc Phú Quí',
-    image: require('../assets/images/avatar.jpg')
+    image: require('../assets/images/sup.jpg')
 }
 
 

@@ -6,26 +6,26 @@ const History = () => {
     const [semesterData, setsemesterData] = useState([{
         id: 0,
         Semester: 'Fall 2023',
-        subjectCode: 'MOB402',
+        subjectCode: 'MOB401',
         subjectName: 'Lập trình server cho Android',
-        status: 'Failed',
+        status: 'Passed',
         class: 'MD18101',
         score: '9.5',
         teach: '17',
     }, {
         id: 1,
         Semester: 'Summer 2023',
-        subjectCode: 'MOB401',
+        subjectCode: 'MOB402',
         subjectName: 'Lập trình game 2D nâng cao',
         status: 'Passed',
         class: 'MD18101',
-        score: '9.5',
+        score: '7',
         teach: '17'
     }, {
         id: 2,
         Semester: 'Spring 2023',
         subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
+        subjectName: 'Lập trình Java2',
         status: 'Passed'
         ,
         class: 'MD18101',

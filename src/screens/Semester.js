@@ -21,7 +21,7 @@ const Semester = ({navigation}) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [semesterData,setSemesterData] = useState([{
         id: 0,
-        subjectCode: 'MOB402',
+        subjectCode: 'MOB401',
         subjectName: 'Lập trình server cho Android',
         Score: '9.5',
         Status: 'Passed',
@@ -49,7 +49,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab5",
                 weight: 3.5,
-                score: 9
+                score: 7
             },
             {
                 name:"Lab6",
@@ -80,9 +80,9 @@ const Semester = ({navigation}) => {
     }
     , {
         id: 1,
-        subjectCode: 'MOB401',
+        subjectCode: 'MOB402',
         subjectName: 'Lập trình game 2D nâng cao',
-        Score: '9.5',
+        Score: '7.0',
         Status: 'Passed',
         attendences: [
             {
@@ -103,7 +103,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab4",
                 weight: 3.5,
-                score: 9
+                score: 7
             },
             {
                 name:"Lab5",
@@ -138,9 +138,9 @@ const Semester = ({navigation}) => {
         ]
     }, {
         id: 2,
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        Score: '9.5',
+        subjectCode: 'MOB403',
+        subjectName: 'Lập trình Java2',
+        Score: '4.5',
         Status: 'Failed',
         attendences: [
             {
@@ -161,7 +161,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab4",
                 weight: 3.5,
-                score: 9
+                score: 5
             },
             {
                 name:"Lab5",
@@ -196,9 +196,9 @@ const Semester = ({navigation}) => {
         ]
     }, {
         id: 3,
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        Score: '9.5',
+        subjectCode: 'MOB405',
+        subjectName: 'Lập trình Game 2D',
+        Score: '8.5',
         Status: 'Passed',
         attendences: [
             {
@@ -224,7 +224,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab5",
                 weight: 3.5,
-                score: 9
+                score: 7
             },
             {
                 name:"Lab6",
@@ -254,9 +254,9 @@ const Semester = ({navigation}) => {
         ]
     }, {
         id: 4,
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        Score: '9.5',
+        subjectCode: 'MOB407',
+        subjectName: 'Thiết kế Website ',
+        Score: '9.0',
         Status: 'Failed',
         attendences: [
             {
@@ -282,7 +282,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab5",
                 weight: 3.5,
-                score: 9
+                score: 7
             },
             {
                 name:"Lab6",
@@ -313,8 +313,8 @@ const Semester = ({navigation}) => {
     }, {
         id: 5,
         subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        Score: '9.5',
+        subjectName: 'Lập trình Java1',
+        Score: '7.0',
         Status: 'Failed',
         attendences: [
             {
@@ -340,7 +340,7 @@ const Semester = ({navigation}) => {
             {
                 name:"Lab5",
                 weight: 3.5,
-                score: 9
+                score: 7
             },
             {
                 name:"Lab6",
