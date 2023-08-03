@@ -13,7 +13,7 @@ const NewsDetail = ({ navigation }) => {
                     <Image source={require('../assets/icons/arrow_back_48.png')} style={{ width: 24, height: 24 }} />
                 </TouchableOpacity>
                 <Text style={{ flex: 1, textAlign: 'center', marginRight: 24, fontWeight: 'bold', fontSize: 18, color: 'white' }}>
-                    {item.newsType === 'hoctap' ? 'Học Tập' : item.newsType === 'thongbao' ? 'Thông Báo' : 'Học Phí'}
+                    {item.newsType === 'hoctap' ? 'Học Tập' : item.newsType === 'hoatdong' ? 'Hoạt Động' : 'Học Phí'}
                 </Text>
             </View>
             <Text style={{ color: 'orange', fontSize: 18, fontWeight: 'bold', textAlign: 'center', padding: 16 }}>
