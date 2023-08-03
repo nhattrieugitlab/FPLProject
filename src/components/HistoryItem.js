@@ -18,7 +18,7 @@ const HistoryItem = (props) => {
             </Text>
         </View>
         <View style={{ width: '23%', borderRadius: 8,}}>
-            <Text style={[item.status === 'Passed' ? { color: 'green' } : item.status === 'Failed' ? { color: 'red' } : null,{padding:8}]}>
+            <Text style={[item.status === 'Passed' ? { color: 'green' } : item.status === 'Failed' ? { color: 'orange' } : null,{padding:8}]}>
              {item.status}
             </Text>
         </View>

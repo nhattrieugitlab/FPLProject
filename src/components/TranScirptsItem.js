@@ -44,7 +44,7 @@ const TranScirptsItem = (props) => {
                             </Text>
                             <Text style={{ color: 'orange' }}>
                                 <Text style={{color:'black'}}>Trạng Thái : </Text>
-                                <Text style={[item.status === 'Passed' ? { color: 'green' } : item.status === 'Failed' ? { color: 'red' } : null,{padding:8}]}>{item.status}</Text>
+                                <Text style={[item.status === 'Passed' ? { color: 'green' } : item.status === 'Failed' ? { color: 'orange' } : null,{padding:8}]}>{item.status}</Text>
                             </Text>
                         </View>
                         <View style={{ width: '40%' }}>

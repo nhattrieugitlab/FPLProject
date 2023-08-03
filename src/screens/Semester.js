@@ -257,7 +257,7 @@ const Semester = ({navigation}) => {
         subjectCode: 'MOB407',
         subjectName: 'Thiết kế Website ',
         Score: '9.0',
-        Status: 'Failed',
+        Status: 'Passed',
         attendences: [
             {
                 name:"Lab1",
@@ -302,20 +302,20 @@ const Semester = ({navigation}) => {
             {
                 name:"Asm1",
                 weight: 3.5,
-                score: 10
+                score: 8
             },
             {
                 name:"Asm2",
                 weight: 3.5,
-                score: 8
+                score: 9
             }
         ]
     }, {
         id: 5,
-        subjectCode: 'MOB401',
+        subjectCode: 'MOB408',
         subjectName: 'Lập trình Java1',
         Score: '7.0',
-        Status: 'Failed',
+        Status: 'Passed',
         attendences: [
             {
                 name:"Lab1",
@@ -360,12 +360,71 @@ const Semester = ({navigation}) => {
             {
                 name:"Asm1",
                 weight: 3.5,
-                score: 10
+                score: 7
             },
             {
                 name:"Asm2",
                 weight: 3.5,
+                score: 6
+            }
+        ]
+    },
+    {
+        id: 6,
+        subjectCode: 'MOB409',
+        subjectName: 'Thiết Kế Giao Diện Android',
+        Score: '4.0',
+        Status: 'Failed',
+        attendences: [
+            {
+                name:"Lab1",
+                weight: 3.5,
+                score: 7
+            },
+            {
+                name:"Lab2",
+                weight: 3.5,
+                score: 5
+            },
+            {
+                name:"Lab3",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab4",
+                weight: 3.5,
+                score: 9
+            },
+            {
+                name:"Lab5",
+                weight: 3.5,
+                score: 7
+            },
+            {
+                name:"Lab6",
+                weight: 3.5,
+                score: 7
+            },
+            {
+                name:"Lab7",
+                weight: 3.5,
                 score: 8
+            },
+            {
+                name:"Lab8",
+                weight: 3.5,
+                score: 8
+            },
+            {
+                name:"Asm1",
+                weight: 3.5,
+                score: 5
+            },
+            {
+                name:"Asm2",
+                weight: 3.5,
+                score: 4
             }
         ]
     }])

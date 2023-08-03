@@ -19,98 +19,61 @@ const History = () => {
         subjectName: 'Lập trình game 2D nâng cao',
         status: 'Passed',
         class: 'MD18101',
-        score: '7',
+        score: '7.0',
         teach: '17'
     }, {
         id: 2,
         Semester: 'Spring 2023',
-        subjectCode: 'MOB402',
+        subjectCode: 'MOB403',
         subjectName: 'Lập trình Java2',
-        status: 'Passed'
-        ,
+        status: 'Failed',
         class: 'MD18101',
-        score: '9.5',
+        score: '4.5',
         teach: '17'
     }, {
         id: 3,
         Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
+        subjectCode: 'MOB405',
+        subjectName: 'Lập trình game 2D',
         status: 'Passed'
         ,
         class: 'MD18101',
-        score: '9.5',
+        score: '8.5',
         teach: '17'
     },
     {
         id: 4,
         Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
+        subjectCode: 'MOB407',
+        subjectName: 'Thiết kế Website',
         status: 'Passed'
         ,
         class: 'MD18101',
-        score: '9.5',
+        score: '9.0',
         teach: '17'
     
     },
     {
         id: 5,
         Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
+        subjectCode: 'MOB408',
+        subjectName: 'Lập trình Java1',
         status: 'Passed'
         ,
-        class: 'MD18101',
-        score: '9.5',
+        class: 'MD18108',
+        score: '7.0',
         teach: '17'
     
     },
     {
         id: 6,
         Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
+        subjectCode: 'MOB409',
+        subjectName: 'Thiết Kế Giao Diện Android',
         status: 'Failed'
         ,
         class: 'MD18101',
-        score: '9.5',
-        teach: '17'
-    
-    },
-    {
-        id: 7,
-        Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        status: 'Failed'
-        ,
-        class: 'MD18101',
-        score: '9.5',
-        teach: '17'
-    
-    },
-    {
-        id: 8,
-        Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        status: 'Passed'
-        ,
-        class: 'MD18101',
-        score: '9.5',
-        teach: '17'
-    
-    },
-    {
-        id: 9,
-        Semester: 'Fall 2022',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        status: 'Passed'
-        ,
-        class: 'MD18101',
-        score: '9.5',
+        score: '4.0',
         teach: '17'
     
     }])
