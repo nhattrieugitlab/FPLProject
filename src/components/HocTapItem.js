@@ -2,18 +2,19 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 const HocTapItem = (props) => {
-    const { item } = props;
-    const handlePress = props.handlePress;
+
+    const { item, handlePress } = props;
+
     return (
-        <TouchableOpacity style={styles.body}  onPress={() => { handlePress(item) }}>
+        <TouchableOpacity style={styles.body} onPress={() => { handlePress(item) }}>
             <Text style={styles.title}>{item.title}</Text>
-            <View style={styles.nguoiDangContainer }>
+            <View style={styles.nguoiDangContainer}>
                 <Text>Người đăng: </Text>
-                <Text>{item.nguoiDang}</Text>
+                <Text>{item.createBy}</Text>
             </View>
-            <View style={styles.nguoiDangContainer }>
+            <View style={styles.nguoiDangContainer}>
                 <Text>Ngày đăng: </Text>
-                <Text>{item.time}</Text>
+                <Text>{item.createAt}</Text>
             </View>
 
         </TouchableOpacity>
@@ -25,7 +26,7 @@ export default HocTapItem
 const styles = StyleSheet.create({
     nguoiDangContainer: {
         marginTop: 10,
-        flexDirection: 'row', 
+        flexDirection: 'row',
         justifyContent: 'flex-start',
     },
     title: {

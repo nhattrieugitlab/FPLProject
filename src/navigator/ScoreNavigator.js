@@ -1,15 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, Image } from 'react-native'
 import TopTab from '../components/TopTab'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TestSchedule from '../screens/TestSchedule';
-import Schedule from '../screens/Schedule';
-import Attendence from '../screens/Attendance';
-import AttendenceDetail from '../screens/AttendenceDetail';
 import Semester from '../screens/Semester';
 import History from '../screens/History';
 import TranScirpts from '../screens/TranScirpts';
 import SemesterDetail from '../screens/SemesterDetail'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +30,18 @@ const user = {
 
 
 const ScoreNavigator = () => {
+    const [userData, setUserData] = useState()
+
+    useEffect(() => {
+        const getUserData = async () => {
+            const user = await AsyncStorage.getItem('userData');
+            setUserData(JSON.parse(user));
+        }
+        getUserData();
+    }, [])
+
+    console.log(userData);
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -40,9 +49,9 @@ const ScoreNavigator = () => {
                     header: () => (
                         <View style={{ backgroundColor: '#fe930f', height: 64, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12 }}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image source={user.image} style={{ width: 48, height: 48, borderRadius: 24 }} />
+                                <Image source={userData?.googleUser?.user?.photo ? { uri: userData?.googleUser?.user?.photo } : require('../assets/icons/ong.png')} style={{ width: 48, height: 48, borderRadius: 24 }} />
                                 <Text style={{ color: 'white', marginLeft: 10 }}>
-                                    {user.name}
+                                    {userData?.user[0]?.fullname}
                                 </Text>
                             </View>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
