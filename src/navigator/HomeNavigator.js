@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { View, Text, Image } from 'react-native'
 import TopTab from '../components/TopTab'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -6,7 +6,7 @@ import HocTap from '../screens/HocTap';
 import HocPhi from '../screens/HocPhi';
 import HoatDong from '../screens/HoatDong';
 import NewsDetail from '../screens/NewsDetail';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppContext } from '../context/AppContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,17 +23,7 @@ const tabs = [{
 
 const HomeNavigator = () => {
 
-    const [userData, setUserData] = useState()
-
-    useEffect(() => {
-        const getUserData = async () => {
-            const user = await AsyncStorage.getItem('userData');
-            setUserData(JSON.parse(user));
-        }
-        getUserData();
-    }, [])
-
-    console.log(userData);
+    const { userData } = useContext(AppContext);
 
     return (
         <Stack.Navigator>

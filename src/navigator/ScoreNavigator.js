@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { View, Text, Image } from 'react-native'
 import TopTab from '../components/TopTab'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -6,7 +6,7 @@ import Semester from '../screens/Semester';
 import History from '../screens/History';
 import TranScirpts from '../screens/TranScirpts';
 import SemesterDetail from '../screens/SemesterDetail'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppContext } from '../context/AppContext';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,17 +30,8 @@ const user = {
 
 
 const ScoreNavigator = () => {
-    const [userData, setUserData] = useState()
 
-    useEffect(() => {
-        const getUserData = async () => {
-            const user = await AsyncStorage.getItem('userData');
-            setUserData(JSON.parse(user));
-        }
-        getUserData();
-    }, [])
-
-    console.log(userData);
+    const { userData } = useContext(AppContext);
 
     return (
         <Stack.Navigator>

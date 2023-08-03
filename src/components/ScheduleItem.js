@@ -64,7 +64,7 @@ const ScheduleItem = (props) => {
                         <View style={{ width: '50%' }}>
                             <Text style={{ color: 'black' }}>
                                 <Text>Lớp: </Text>
-                                <Text style={{ fontWeight: 'bold' }}>{item.class}</Text>
+                                <Text style={{ fontWeight: 'bold' }}>{item.className}</Text>
                             </Text>
                             <Text style={{ color: 'black' }}>
                                 <Text>Giảng viên: </Text>

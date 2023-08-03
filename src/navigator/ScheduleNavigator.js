@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { View, Text, Image } from 'react-native'
 import TopTab from '../components/TopTab'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -6,7 +6,7 @@ import TestSchedule from '../screens/TestSchedule';
 import Schedule from '../screens/Schedule';
 import Attendence from '../screens/Attendance';
 import AttendenceDetail from '../screens/AttendenceDetail';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppContext } from '../context/AppContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,23 +21,10 @@ const tabs = [{
     screen: Attendence
 }];
 
-const user = {
-    name: 'Nguyễn Nhật Triều',
-    image: require('../assets/images/avatar.jpg')
-}
 
 const ScheduleNavigator = () => {
-    const [userData, setUserData] = useState()
 
-    useEffect(() => {
-        const getUserData = async () => {
-            const user = await AsyncStorage.getItem('userData');
-            setUserData(JSON.parse(user));
-        }
-        getUserData();
-    }, [])
-
-    console.log(userData);
+    const { userData } = useContext(AppContext);
 
     return (
         <Stack.Navigator>

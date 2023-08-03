@@ -1,20 +1,14 @@
 import { Image, StyleSheet, Text, Touchable, View, TouchableOpacity, Modal, Alert } from 'react-native'
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useContext } from 'react'
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import AxiosInstance from '../apis/AxiosInstance';
+import { AppContext } from '../context/AppContext';
 
-const setData = async (value) => {
-    try {
-        await AsyncStorage.setItem('userData', JSON.stringify(value));
-    } catch (error) {
-        console.error('Error saving data:', error);
-    }
-};
 
-const Login = ({ navigation }) => {
+const Login = () => {
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
+    const { setUserData } = useContext(AppContext);
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
     };
@@ -35,11 +29,10 @@ const Login = ({ navigation }) => {
             const googleUser = await GoogleSignin.signIn();
             const user = await AxiosInstance().get('user/getUserByEmail/' + googleUser.user.email);
             if (user[0]) {
-                setData({
+                setUserData({
                     googleUser,
                     user
                 });
-                navigation.replace('Home');
             } else {
                 Alert.alert("Email của bạn không hợp lệ");
             }

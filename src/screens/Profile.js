@@ -1,19 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import React, { useState, useEffect } from 'react'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import React, { useContext } from 'react'
+import { AppContext } from '../context/AppContext';
 
 const Profile = () => {
-    const [userData, setUserData] = useState()
-
-    useEffect(() => {
-        const getUserData = async () => {
-            const user = await AsyncStorage.getItem('userData');
-            setUserData(JSON.parse(user));
-        }
-        getUserData();
-    }, [])
-
-    console.log(userData);
+    const { userData } = useContext(AppContext);
 
     return (
         <View>

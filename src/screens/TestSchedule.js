@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, TouchableOpacity, FlatList } from 'react-native';
 import SelectDialog from '../components/SelectDialog';
 import DateSelect from '../components/DateSelect'
 import ScheduleItem from '../components/ScheduleItem';
+import { AppContext } from '../context/AppContext';
+import AxiosInstance from '../apis/AxiosInstance';
 
 const dateData = [
     { id: 0, label: '7 ngày tới' },
@@ -13,110 +15,42 @@ const dateData = [
     { id: 5, label: '90 ngày trước' },
 ];
 
+const formatDate = (dateString) => {
+    const [day, month, year] = dateString.split("/");
+    const itemDate = new Date(`${year}-${month}-${day}`);
+    return itemDate;
+}
+
+const scheduleFilter = (selectedItem, scheduleData) => {
+    const numOfDate = selectedItem.id === 0 ? 7 : selectedItem.id === 1 ? 30 : selectedItem.id === 2 ? 90 : selectedItem.id === 3 ? -7 : selectedItem.id === 4 ? -30 : -90;
+    const newScheduleData = scheduleData.filter((item) => {
+        const itemDate = formatDate(item.date)
+        const fromDate = new Date();
+        const toDate = new Date();
+        toDate.setDate(toDate.getDate() + numOfDate);
+        if (numOfDate > 0) {
+            return itemDate >= fromDate && itemDate <= toDate;
+        } else {
+            return itemDate <= fromDate && itemDate >= toDate;
+        }
+    })
+    newScheduleData.sort((a, b) => formatDate(a.date) - formatDate(b.date));
+    return newScheduleData;
+}
+
 const TestSchedule = () => {
     const [isDialogVisible, setDialogVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-    const [testScheduleData, setTestScheduleData] = useState([{
-        id: 0,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1103 (Nha T)',
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        time: '09:45 - 11:45',
-        date: '24/07/2023',
-        class: 'MD18101',
-        teacher: 'thohv3'
-    }, {
-        id: 1,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1008 (Nha T)',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        time: '09:45 - 11:45',
-        date: '25/07/2023',
-        class: 'MD18101',
-        teacher: 'dinhnt24'
-    }, {
-        id: 2,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1103 (Nha T)',
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        time: '09:45 - 11:45',
-        date: '26/07/2023',
-        class: 'MD18101',
-        teacher: 'thohv3'
-    }, {
-        id: 3,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1008 (Nha T)',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        time: '09:45 - 11:45',
-        date: '27/07/2023',
-        class: 'MD18101',
-        teacher: 'dinhnt24'
-    }, {
-        id: 4,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1103 (Nha T)',
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        time: '09:45 - 11:45',
-        date: '28/07/2023',
-        class: 'MD18101',
-        teacher: 'thohv3'
-    }, {
-        id: 5,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1008 (Nha T)',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        time: '09:45 - 11:45',
-        date: '29/07/2023',
-        class: 'MD18101',
-        teacher: 'dinhnt24'
-    }, {
-        id: 6,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1103 (Nha T)',
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        time: '09:45 - 11:45',
-        date: '30/07/2023',
-        class: 'MD18101',
-        teacher: 'thohv3'
-    }, {
-        id: 7,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1008 (Nha T)',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        time: '09:45 - 11:45',
-        date: '31/07/2023',
-        class: 'MD18101',
-        teacher: 'dinhnt24'
-    }, {
-        id: 8,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1103 (Nha T)',
-        subjectCode: 'MOB402',
-        subjectName: 'Lập trình server cho Android',
-        time: '09:45 - 11:45',
-        date: '01/08/2023',
-        class: 'MD18101',
-        teacher: 'thohv3'
-    }, {
-        id: 9,
-        amphitheater: 'Phan Mem Quang Trung',
-        room: 'T1008 (Nha T)',
-        subjectCode: 'MOB401',
-        subjectName: 'Lập trình game 2D nâng cao',
-        time: '09:45 - 11:45',
-        date: '02/08/2023',
-        class: 'MD18101',
-        teacher: 'dinhnt24'
-    }])
+    const { userData } = useContext(AppContext);
+    const [scheduleData, setScheduleData] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            const res = await AxiosInstance().get('testSchedule/listTestSchedules/' + userData.user[0].className);
+            setScheduleData(scheduleFilter(selectedItem, res));
+        }
+        getData();
+    }, [selectedItem]);
 
     const handleSelect = (item) => {
         setSelectedItem(item);
@@ -129,19 +63,19 @@ const TestSchedule = () => {
 
     const handlePress = (item) => {
         item.isExpanded = !item.isExpanded;
-        const newData = [...testScheduleData];
-        setTestScheduleData(newData);
+        const newData = [...scheduleData];
+        setScheduleData(newData);
     }
 
     return (
         <View style={{ paddingTop: 16, paddingHorizontal: 12, flex: 1 }}>
             <TouchableOpacity style={{ marginBottom: 8 }} onPress={() => { setDialogVisible(true) }}>
-                <DateSelect title={selectedItem ? selectedItem.label : dateData[0].label} />
+                <DateSelect title={selectedItem ? selectedItem.label : setSelectedItem(dateData[0])} />
             </TouchableOpacity>
             <FlatList
                 showsVerticalScrollIndicator={false}
-                data={testScheduleData}
-                keyExtractor={item => item.id}
+                data={scheduleData}
+                keyExtractor={item => item._id}
                 renderItem={({ item }) => <ScheduleItem item={item} handlePress={handlePress} />} />
             <SelectDialog
                 visible={isDialogVisible}
